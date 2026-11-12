@@ -26,7 +26,14 @@ def test_score_hand_combinations(hand, expected_score):
 
 # Sub-task 4
 def test_display_player_console_output(capsys):
-    pass
+    clear_players()
+    player = create_player(COMPUTER, "Bob")
+    player[HAND] = ["H10", "S7"]
+    player[SCORE] = 17
+    add_player(player)
+    show_players()
+    output = capsys.readouterr()
+    assert "Bob with score: 17" in output.out
 
 # Sub-task 5
 def test_create_csv_reader_valid_data(tmp_path):
