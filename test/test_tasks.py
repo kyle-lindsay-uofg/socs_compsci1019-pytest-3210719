@@ -16,8 +16,8 @@ def test_calculate_bust_probability():
 
 # Sub-task 2
 def test_create_csv_reader_invalid_path():
-    pass
-
+    with pytest.raises(IOError):
+        create_csv_reader("does_not_exist.csv")
 
 # Sub-task 3
 def test_score_hand_combinations(hand, expected_score):
